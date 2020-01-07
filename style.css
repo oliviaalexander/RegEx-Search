@@ -1,0 +1,13 @@
+.containerDiv{
+    display: block; 
+    margin: auto; 
+    width: 300px;
+}
+#nameContainer > p {
+    display: inline-block;
+    margin: 20px;
+}
+input{
+   width: 200px;
+   font-size: 20px;
+}
