@@ -1,4 +1,4 @@
-.containerDiv{
+.container{
     display: block; 
     margin: auto; 
     width: 300px;
@@ -7,7 +7,15 @@
     display: inline-block;
     margin: 20px;
 }
-input{
-   width: 200px;
+.container input{
+   width: 80%;
    font-size: 20px;
+}
+
+.container ul{
+    list-style-type: none;
+}
+
+.errorMessaging{
+    display:none;
 }

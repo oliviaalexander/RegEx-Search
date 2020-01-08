@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Drinks DB</title>
+    <title>Find a Drink</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-<div>Find a recipe</div>
-<div class="containerDiv">
-    <input type="text" onkeyup="onKeyUp()" name="search" id="search" placeholder="Start typing..." style="border: 1px solid black">
+<h1>Find a recipe</h1>
+<div class="container">
+    <input type="text" onkeyup="onKeyUp()" name="search" id="search" placeholder="Enter your favorite drink..." style="border: 1px solid black">
 
     <div id="apiResults">
         <ul>
         </ul>
+
+        <div class="errorMessaging">Oh no! Looks like we couldnt find anything to match your search</div>
     </div>
 
-    <div id="nameContainer"></div>
 </div>
 
 

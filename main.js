@@ -1,6 +1,4 @@
 
-const drinkArray = [];
-
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=b')
 .then(response => response.json()) 
 .then(drinkData => {
@@ -10,33 +8,45 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=b')
         let drinkName = element.strDrink.replace(/[\s+)(+.']'/g,'');
         drinkArray.push(drinkName)
     })
-
+    
     drinkArray.forEach((element)=> {
-        $('#apiResults ul').append('<li>' + element + '</li>');
+        $UlItems.append('<li>' + element + '</li>');
     });
     
 });
 
 
 onKeyUp = () => {
-    let str = event.target.value.toLowerCase().substring(0, 3)
+    let str = event.target.value.toLowerCase().substring(0, 20)
     
     let filteredArr = drinkArray.filter((x)=>{
-        let xSub = x.substring(0, 3).toLowerCase()
+        let xSub = x.substring(0, 20).toLowerCase()
         return x.toLowerCase().includes(str) || checkName(xSub, str)
     })
     if (filteredArr.length > 0){
-        console.log(filteredArr)
+        $UlItems.empty();
+        filteredArr.forEach((element, index) => {
+            $UlItems.append('<li>' + element + '</li>');
+            $errorMessaging.hide();
+            
+        })
     } else {
-        console.log("no results")
+        $UlItems.empty();
+        $errorMessaging.show();
     }
-
+    
 };
 
 checkName = (name, str) => {
-    var pattern = str.split("").map((x)=>{
+    var pattern = str.split('').map((x)=>{
         return `(?=.*${x})`
-    }).join("");
-    var regex = new RegExp(`${pattern}`, "g")
+    }).join('');
+    var regex = new RegExp(`${pattern}`, 'g')
     return name.match(regex);
 };
+
+//***************************************************** */
+
+const drinkArray = [];
+const $UlItems = $('#apiResults ul');
+const $errorMessaging = $('.errorMessaging');
