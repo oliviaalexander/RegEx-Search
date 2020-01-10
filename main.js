@@ -1,37 +1,50 @@
 
-fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=b')
+
+fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=c')
 .then(response => response.json()) 
 .then(drinkData => {
     let drinkList = drinkData.drinks;
-    
+    console.log(drinkList)
+
     drinkList.forEach((element) => {
-        let drinkName = element.strDrink.replace(/[\s+)(+.']'/g,'');
-        drinkArray.push(drinkName)
-    })
+        let drinkName = element.strDrink,
+            drinkRecipe = element.strInstructions,
+            drinkThumbnail = element.strDrinkThumb;
+        
+        drinkArray.push({
+            'name': drinkName, 
+            'recipe': drinkRecipe,
+            'thumbnail': drinkThumbnail});
+        })   
     
-    drinkArray.forEach((element)=> {
-        $UlItems.append('<li>' + element + '</li>');
-    });
-    
+        drinkArray.forEach((element) => {
+            $('.drinkContainer').append(
+                '<div class="drinkItem"> ' + 
+                    '<div class="drinkName">' + element.name + '</div>' + 
+                    '<div class="drinkRecipe">' + element.recipe + '</div>' + 
+                    '<img class="drinkThumbnail" src="' + element.thumbnail + '">'
+                + '</div>'
+            );
+        });
 });
 
 
 onKeyUp = () => {
-    let str = event.target.value.toLowerCase().substring(0, 20)
+    let str = event.target.value.toLowerCase().substring(0, 3)
     
     let filteredArr = drinkArray.filter((x)=>{
-        let xSub = x.substring(0, 20).toLowerCase()
+        let xSub = x.substring(0, 3).toLowerCase()
         return x.toLowerCase().includes(str) || checkName(xSub, str)
     })
     if (filteredArr.length > 0){
-        $UlItems.empty();
+        $listItems.empty();
         filteredArr.forEach((element, index) => {
-            $UlItems.append('<li>' + element + '</li>');
+            $listItems.append('<div>' + element + '</div>');
             $errorMessaging.hide();
             
         })
     } else {
-        $UlItems.empty();
+        $listItems.empty();
         $errorMessaging.show();
     }
     
@@ -45,8 +58,11 @@ checkName = (name, str) => {
     return name.match(regex);
 };
 
-//***************************************************** */
+
+//*********************** Declarations ****************************** */
 
 const drinkArray = [];
-const $UlItems = $('#apiResults ul');
+const $listItems = $('#apiResults');
 const $errorMessaging = $('.errorMessaging');
+
+console.log(drinkArray);

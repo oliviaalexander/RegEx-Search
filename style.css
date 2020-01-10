@@ -1,21 +1,36 @@
-.container{
-    display: block; 
-    margin: auto; 
-    width: 300px;
-}
-#nameContainer > p {
-    display: inline-block;
-    margin: 20px;
-}
-.container input{
-   width: 80%;
-   font-size: 20px;
-}
-
-.container ul{
-    list-style-type: none;
-}
-
 .errorMessaging{
     display:none;
+}
+
+.drinkContainer{
+    display: flex; 
+    align-content: space-evenly;
+    border: 1px solid green;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.drinkItem{
+    width: 400px;
+    height: auto;
+    border: 1px solid blue;
+    word-wrap: break-word;
+    padding: 50px;
+}
+
+.drinkName{
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.drinkRecipe{
+    font-size: 1.2em;
+    line-height: 1em;
+}
+
+.drinkThumbnail{
+    width: 200px;
+    height: 200px;
 }
