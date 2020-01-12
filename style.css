@@ -1,36 +1,41 @@
-.errorMessaging{
-    display:none;
+input {
+  height: 20px;
+  width: 400px;
+  padding: 20px;
+  font-size: 20px;
+}
+.errorMessaging {
+  display: none;
 }
 
-.drinkContainer{
-    display: flex; 
-    align-content: space-evenly;
-    border: 1px solid green;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 15px;
+.drinkContainer {
+  display: flex;
+  border: 1px solid green;
+  flex-wrap: wrap;
+  padding: 15px;
 }
 
-.drinkItem{
-    width: 400px;
-    height: auto;
-    border: 1px solid blue;
-    word-wrap: break-word;
-    padding: 50px;
+.drinkItem {
+  width: 300px;
+  height: auto;
+  border: 1px solid blue;
+  word-wrap: break-word;
+  padding: 50px;
+  justify-content: space-evenly;
 }
 
-.drinkName{
-    font-size: 2em;
-    font-weight: 400;
-    text-align: center;
+.drinkName {
+  font-size: 2em;
+  font-weight: 400;
+  text-align: center;
 }
 
-.drinkRecipe{
-    font-size: 1.2em;
-    line-height: 1em;
+.drinkRecipe {
+  font-size: 1.2em;
+  line-height: 1em;
 }
 
-.drinkThumbnail{
-    width: 200px;
-    height: 200px;
+.drinkThumbnail {
+  width: 200px;
+  height: 200px;
 }
